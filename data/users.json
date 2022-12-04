@@ -4,13 +4,23 @@
     "password": "@Password123",
     "name": "Test Admin",
     "role": "admin",
-    "id": "001"
+    "id": "001",
+    "subscribed": false
   },
   {
     "email": "user@example.com",
     "password": "@Password123",
     "name": "Test User",
     "role": "user",
-    "id": "002"
+    "id": "002",
+    "subscribed": false
+  },
+  {
+    "email": "subscribed@example.com",
+    "password": "@Password123",
+    "name": "Test Subscribed User",
+    "role": "user",
+    "id": "002",
+    "subscribed": true
   }
 ]

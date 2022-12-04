@@ -1,23 +1,24 @@
-import { DefaultSession } from "next-auth";
+import { DefaultSession, DefaultUser } from "next-auth";
+export enum Role {
+  user = "user",
+  admin = "admin",
+}
+interface IUser extends DefaultUser {
+  /**
+   * Role of user
+   */
+  role?: Role;
+  /**
+   * Field to check whether a user has a subscription
+   */
+  subscribed?: boolean;
+}
 declare module "next-auth" {
-  interface User {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-    role?: string | null;
-  }
-  interface Session extends DefaultSession {
+  interface User extends IUser {}
+  interface Session {
     user?: User;
   }
 }
-
 declare module "next-auth/jwt" {
-  interface DefaultJWT {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-    role?: string | null;
-  }
+  interface JWT extends IUser {}
 }
-
-export {};
